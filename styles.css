@@ -1,0 +1,101 @@
+/* 公共样式，适用于所有页面 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #F3F4F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1, h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.highlight {
+    color: red;
+    font-weight: bold;
+}
+
+/* 专用于倒计时页面的样式 */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #6B46C1; /* 紫色倒计时 */
+    margin-bottom: 30px;
+}
+
+/* 列表的排版 */
+ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 1.8;
+    text-align: left; /* 左对齐文本 */
+}
+
+ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px; /* 为 bullet 点预留空间 */
+}
+
+ul li::before {
+    content: "•";
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

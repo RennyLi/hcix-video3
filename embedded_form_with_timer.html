@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire with Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 倒计时提醒 -->
+        <div class="timer">
+            Time Remaining: <span id="minutes">05</span>:<span id="seconds">00</span>
+        </div>
+
+        <!-- 嵌入问卷星的页面 -->
+        <iframe id="questionnaire" src="https://ks.wjx.top/vm/P4FDchH.aspx# " width="100%" height="600" style="border:none;">
+            Your browser does not support iframes.
+        </iframe>
+
+        <!-- 显示的 Next 按钮 -->
+        <div class="button-container">
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let time = 300; // 5 分钟（300秒）
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            minutesElement.textContent = String(minutes).padStart(2, '0');
+            secondsElement.textContent = String(seconds).padStart(2, '0');
+
+            if (time > 0) {
+                time--;
+            } else {
+                clearInterval(timerInterval);
+                alert('Time is up! You will now be redirected to the next page.');
+                nextPage(); // 倒计时结束后自动跳转到下一页
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000); // 每秒更新一次倒计时
+        window.onload = updateTimer; // 页面加载时启动倒计时
+
+        function nextPage() {
+            window.location.href = "instructions_page2.html"; // 跳转到下一个页面
+        }
+    </script>
+</body>
+</html>

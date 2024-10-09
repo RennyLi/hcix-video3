@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Immediate Post-Test: Free Recall Task</h2>
+
+        <p>
+            In this task, we want you to recall as much of the content you just reviewed as possible. 
+            Don’t worry about exact wording—just focus on recalling the main ideas, details, and concepts.
+        </p>
+        <p>
+            1. You will have <strong>5 minutes</strong> to write down or type as much as you can remember.
+            <br>
+            2. Try to include as many details as possible, but don’t worry if you can’t remember every word.
+        </p>
+
+        <!-- 重点提醒用户关于提交和时间限制 -->
+        <p class="warning" style="color: red; font-weight: bold; margin-top: 20px;">
+            Important: You must manually submit your responses before the timer ends. When the 5-minute timer reaches zero, the page will automatically redirect to the next page, and any unsaved responses will be lost. Please make sure to submit your form before the time runs out!
+        </p>
+
+        <div class="button-container">
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage() {
+            window.location.href = "embedded_form_with_timer.html"; // 跳转到问卷页面
+        }
+    </script>
+</body>
+</html>

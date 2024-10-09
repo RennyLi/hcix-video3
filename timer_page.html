@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Study - Memorize Content</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container timer-container">
+        <div class="timer">
+            <span id="minutes">05</span> : <span id="seconds">00</span>
+        </div>
+        <div class="content-box">
+            <h2>Please memorize the following content:</h2>
+            <p>Aspects of Sustainable Cities:</p>
+            <ul>
+                <li>Affordable housing</li>
+                <li>Sustainable transport</li>
+                <li>Green public spaces</li>
+                <li>Climate resilience in urban planning</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let time = 300; // 5 minutes in seconds
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            minutesElement.textContent = String(minutes).padStart(2, '0');
+            secondsElement.textContent = String(seconds).padStart(2, '0');
+
+            if (time > 0) {
+                time--;
+            } else {
+                clearInterval(timerInterval);
+                window.location.href = "instructions_page.html"; // Redirect to the next page
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+        window.onload = updateTimer; // Start timer on page load
+    </script>
+</body>
+</html>

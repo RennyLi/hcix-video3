@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire with Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- 嵌入问卷星的页面 -->
+        <iframe id="questionnaire" src="https://www.wjx.cn/vm/eay8BfN.aspx#" width="100%" height="600" style="border:none;">
+            Your browser does not support iframes.
+        </iframe>
+
+        <!-- 显示的 Next 按钮 -->
+        <div class="button-container">
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+
+        function nextPage() {
+            window.location.href = "embedded_form_with_timer3.html"; // 跳转到下一个页面
+        }
+    </script>
+</body>
+</html>
