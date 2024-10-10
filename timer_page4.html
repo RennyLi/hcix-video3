@@ -4,49 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image group - Memorizing</title>
-    <link rel="stylesheet" href="timer_page4.css">
+    <link rel="stylesheet" href="timer.css">
 </head>
 <body>
     <div class="container">
         <!-- 倒计时显示 -->
         <div class="timer">
-            <span id="minutes">01</span> : <span id="seconds">10</span>
+            <span id="minutes">01</span> : <span id="seconds">00</span>
         </div>
 
         <!-- 文本和内容部分 -->
         <div class="content-box">
             <h2>Please memorize the following content:</h2>
-            <p>Aspects of Sustainable Cities:</p>
-            <p>1. Ensuring affordable housing for all</p>
-            <p>2. Promoting sustainable public transport systems</p>
-            <p>3. Creating green public spaces for communities</p>
-            <p>4. Integrating climate resilience into urban planning</p>
+            <p>Ways to Ensure Quality Education:
+            <ul>
+                <li>1. Providing free primary and secondary education to all children</li>
+                <li>2. Ensuring gender equality in education access and outcomes</li>
+                <li>3. Promoting adult education and lifelong learning opportunities</li>
+                <li>4. Enhancing digital literacy and access to technology in education</li>
+                <li>5. Training teachers to improve education quality and inclusivity</li>
+            </ul>
         </div>
 
         <!-- 图片和文字描述 -->
-        <div class="image-row">
-            <div class="image-col">
-                <img src="1.png" alt="Compost and Recycling bins">
-                <ul>
-                    <li><strong>Brick house</strong> → Ensuring affordable housing for all</li>
-                    <li><strong>Subway</strong> → Promoting sustainable public transport systems</li>
-                </ul>
-            </div>
-            <div class="image-col">
-                <img src="2.png" alt="Solar panel">
-                <ul>
-                    <li><strong>Subway</strong> → Promoting sustainable public transport systems</li>
-                    <li><strong>Tree</strong> → Creating green public spaces for communities</li>
-                </ul>
-            </div>
-            <div class="image-col">
-                <img src="3.png" alt="Sustainable factory">
-                <ul>
-                    <li><strong>Tree</strong> → Creating green public spaces for communities</li>
-                    <li><strong>Reinforced wall</strong> → Integrating climate resilience into urban planning</li>
-                </ul>
-            </div>
-        </div>  
+        <div class="image-content">
+            <img src="3.png" alt="Compost and Recycling bins" class="memorize-image">
+            <ul>
+                <li><strong>Graduation cap</strong> → <em>Promoting adult education and lifelong learning opportunities</em></li>
+                <li><strong>Tracher's certificate</strong> → <em>Training teachers to improve education quality and inclusivity</em></li>
+            </ul>
+        </div>
+
+        <!-- 下一步按钮 -->
+        <!-- <div class="button-container">
+            <button onclick="nextPage()">Next</button>
+        </div> -->
     </div>
 
     <script>
@@ -65,13 +57,17 @@
                 time--;
             } else {
                 clearInterval(timerInterval);
-                window.location.href = "instructions_page.html"; // Redirect to the next page
+                nextPage(); // Redirect to next page when time runs out
             }
         }
 
         // Start the timer when the page loads
         const timerInterval = setInterval(updateTimer, 1000);
         window.onload = updateTimer;
+
+        function nextPage() {
+            window.location.href = "timer_page5.html"; // Redirect to the next page
+        }
     </script>
 </body>
 </html>

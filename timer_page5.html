@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image group - Memorizing</title>
+    <link rel="stylesheet" href="timer_page5.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 倒计时显示 -->
+        <div class="timer">
+            <span id="minutes">01</span> : <span id="seconds">10</span>
+        </div>
+
+        <!-- 文本和内容部分 -->
+        <div class="content-box">
+            <h2>Please memorize the following content:</h2>
+            <p>Ways to Ensure Quality Education:</p>
+            <p>1. Providing free primary and secondary education to all children</p>
+            <p>2. Ensuring gender equality in education access and outcomes</p>
+            <p>3. Promoting adult education and lifelong learning opportunities</p>
+            <p>4. Enhancing digital literacy and access to technology in education</p>
+            <p>5. Training teachers to improve education quality and inclusivity</p>
+        </div>
+
+        <!-- 图片和文字描述 -->
+        <div class="image-row">
+            <div class="image-col">
+                <img src="1.png" alt="Compost and Recycling bins">
+                <ul>
+                    <li><strong>Brick house</strong> → Ensuring affordable housing for all</li>
+                    <li><strong>Subway</strong> → Promoting sustainable public transport systems</li>
+                </ul>
+            </div>
+            <div class="image-col">
+                <img src="2.png" alt="Solar panel">
+                <ul>
+                    <li><strong>Subway</strong> → Promoting sustainable public transport systems</li>
+                    <li><strong>Tree</strong> → Creating green public spaces for communities</li>
+                </ul>
+            </div>
+            <div class="image-col">
+                <img src="3.png" alt="Sustainable factory">
+                <ul>
+                    <li><strong>Tree</strong> → Creating green public spaces for communities</li>
+                    <li><strong>Reinforced wall</strong> → Integrating climate resilience into urban planning</li>
+                </ul>
+            </div>
+            <div class="image-col">
+                <img src="4.png" alt="New image description">
+                <ul>
+                    <li><strong>New description</strong> → Example related text</li>
+                    <li><strong>Another description</strong> → Example related text</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let time = 70; // 1 minute 10 seconds
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        // Function to update the timer every second
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            minutesElement.textContent = String(minutes).padStart(2, '0');
+            secondsElement.textContent = String(seconds).padStart(2, '0');
+
+            if (time > 0) {
+                time--;
+            } else {
+                clearInterval(timerInterval);
+                window.location.href = "instructions_page.html"; // Redirect to the next page
+            }
+        }
+
+        // Start the timer when the page loads
+        const timerInterval = setInterval(updateTimer, 1000);
+        window.onload = updateTimer;
+    </script>
+</body>
+</html>

@@ -21,7 +21,7 @@ body {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 1200px; /* 宽度调整以容纳三张图片 */
+    max-width: 1200px; /* 控制容器最大宽度以适应所有图片 */
     width: 100%;
 }
 
@@ -45,11 +45,12 @@ p, ul {
 .image-row {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 
 .image-col {
-    flex: 1;
+    flex: 0 0 23%; /* 使图片每列占据 23% 宽度，使四张图片在一行 */
     text-align: center;
     margin: 0 10px;
 }
