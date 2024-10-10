@@ -99,3 +99,40 @@ ul li::before {
     left: 0;
     top: 0;
 }
+
+/* 新增：倒计时页面的图片和图文混排的专用样式 */
+.image-content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-content img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.image-content ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.image-content ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
+
+.image-content ul li::before {
+    content: "→";
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
