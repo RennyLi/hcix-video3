@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorizing Video Page</title>
+    <link rel="stylesheet" href="timer_page6.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 倒计时显示 -->
+        <div class="timer">
+            <div class="time-box purple"><span id="minutes">05</span></div>
+            <div class="colon">:</div>
+            <div class="time-box black"><span id="seconds">00</span></div>
+        </div>
+
+        <!-- 文本和内容部分 -->
+        <div class="content-box">
+            <h2>Please memorize the following content:</h2>
+            <p>Ways to Ensure Quality Education:</p>
+            <p>1. Supporting inclusive education that values all cultural backgrounds</p>
+            <p>2. Promoting dialogue between diverse communities to foster understanding</p>
+            <p>3. Celebrating cultural heritage and traditions from around the world</p>
+            <p>4. Combating discrimination and hate speech in all forms</p>
+            <p>5. Encouraging participation from all groups in decision-making processes</p>
+        </div>
+
+        <!-- 视频部分 -->
+        <div class="video-container">
+            <video id="video" autoplay loop muted>
+                <source src="panlei.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- 进度条 -->
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <!-- 文本和图例部分 -->
+        <div class="legend">
+            <ul>
+                <li><strong>Library bookshelf</strong> → <em>Supporting inclusive education that values all cultural backgrounds</em></li>
+                <li><strong>Round table</strong> → <em>Promoting dialogue between diverse communities to foster understanding</em></li>
+                <li><strong>Festival banner</strong> → <em>Celebrating cultural heritage and traditions from around the world</em></li>
+                <li><strong>Shield</strong> → <em>Combating discrimination and hate speech in all forms</em></li>
+                <li><strong>Ballot box</strong> → <em>Encouraging participation from all groups in decision-making processes</em></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 初始化倒计时时间
+        let time = 300; // 5 minutes in seconds
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        const videoElement = document.getElementById('video');
+        const progressElement = document.getElementById('progress');
+
+        // 每秒更新倒计时
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            minutesElement.textContent = String(minutes).padStart(2, '0');
+            secondsElement.textContent = String(seconds).padStart(2, '0');
+
+            if (time > 0) {
+                time--;
+            } else {
+                clearInterval(timerInterval);
+                window.location.href = "instructions_page.html"; // 倒计时结束后跳转到下一个页面
+            }
+        }
+
+        // 监听视频播放进度，更新进度条
+        videoElement.addEventListener('timeupdate', () => {
+            const videoProgress = (videoElement.currentTime / videoElement.duration) * 100;
+            progressElement.style.width = videoProgress + '%';
+
+            // 当视频播放完毕时，进度条从头开始
+            if (videoElement.currentTime === videoElement.duration) {
+                progressElement.style.width = '0%';
+            }
+        });
+
+        // 每秒更新倒计时
+        const timerInterval = setInterval(updateTimer, 1000);
+        window.onload = updateTimer;
+    </script>
+</body>
+</html>
